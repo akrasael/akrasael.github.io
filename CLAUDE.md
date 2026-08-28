@@ -54,6 +54,25 @@ The working rules:
 - Left-aligned by default. Centered text only for short display passages.
 - Avoid justified text without hyphenation.
 
+## Standing instruction: two languages
+
+The site is bilingual, English and Swedish, switched by a button in the header.
+English lives in the HTML; the Swedish version of each string sits beside it in
+a `data-sv` attribute. `lang.js` swaps them on click, stashing the English in
+`data-en` on first swap so switching back is lossless, and remembers the choice
+in `localStorage`.
+
+When adding or editing any visible text, add its `data-sv` in the same edit —
+otherwise that string silently stays English in Swedish mode. Put `data-sv` on
+leaf elements only: an element whose translation is swapped has its inner HTML
+replaced, so a `data-sv` nested inside another would be destroyed. Where a
+string wraps an element that should not change (a `<time>`, say), wrap just the
+words in a `<span data-sv="...">`.
+
+Two things stay untranslated on purpose: the Iroh quotation, since a quotation
+is conventionally left in its original language, and the titles of the two
+linked documents, since a work keeps its title.
+
 ## Structure
 
 | File | Purpose |
@@ -64,6 +83,7 @@ The working rules:
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles |
+| `lang.js` | English/Swedish toggle |
 | `.nojekyll` | Serve files as-is, without Jekyll |
 
 ## Layout conventions

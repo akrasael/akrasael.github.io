@@ -68,6 +68,34 @@ body {
   padding: 28px var(--gutter) 0;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Language toggle. Hidden unless scripting is on, so it is never inert. */
+.lang-toggle {
+  display: none;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.js .lang-toggle {
+  display: inline-block;
+}
+
+.lang-toggle:hover {
+  border-color: var(--text);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
 }
 
 .tabs {
@@ -302,8 +330,17 @@ a {
     padding-top: 20px;
   }
 
+  .site-header {
+    gap: 16px;
+  }
+
   .tabs {
     gap: 24px;
+  }
+
+  .lang-toggle {
+    font-size: 14px;
+    padding: 4px 9px;
   }
 
   .tab {

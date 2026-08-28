@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog | Kevin Haagensen Strömberg</title>
+<title data-sv="Blogg | Kevin Haagensen Strömberg">Blog | Kevin Haagensen Strömberg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap">
@@ -11,40 +11,42 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main" data-sv="Hoppa till huvudinnehållet">Skip to main content</a>
 
 <header class="site-header">
   <nav class="tabs" aria-label="Main">
-    <a class="tab" href="index.html">Home</a>
-    <a class="tab" href="mathematics.html">Mathematics</a>
-    <a class="tab is-active" href="blog.html" aria-current="page">Blog</a>
+    <a class="tab" href="index.html" data-sv="Hem">Home</a>
+    <a class="tab" href="mathematics.html" data-sv="Matematik">Mathematics</a>
+    <a class="tab is-active" href="blog.html" aria-current="page" data-sv="Blogg">Blog</a>
   </nav>
+  <button class="lang-toggle" type="button" id="lang-toggle" data-sv="English">Svenska</button>
 </header>
 
 <main id="main" class="wrap">
 
-  <h1>Blog</h1>
+  <h1 data-sv="Blogg">Blog</h1>
 
   <!-- ==========================================================
        One <article class="post-preview"> per post, newest first.
-       Update the <time> datetime attribute as well as the visible
-       text when you change a date.
+       Each translatable string carries its Swedish in data-sv.
        ========================================================== -->
 
   <article class="post-preview">
     <p class="post-date">
-      <time datetime="2026-08-28">Aug 28, 2026</time>
+      <time datetime="2026-08-28" data-sv="28 aug. 2026">Aug 28, 2026</time>
     </p>
     <div class="post-body">
-      <h2 class="post-title"><a href="blog/example-title.html">Example title</a></h2>
+      <h2 class="post-title"><a href="blog/example-title.html" data-sv="Exempeltitel">Example title</a></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua&#8230;</p>
-      <p><a class="button" href="blog/example-title.html">Read more&#8230;</a></p>
-      <p class="post-meta">posted at <time datetime="2026-08-28T22:15+02:00">22.15</time></p>
+      <p><a class="button" href="blog/example-title.html" data-sv="Läs mer&#8230;">Read more&#8230;</a></p>
+      <p class="post-meta"><span data-sv="publicerat">posted at</span> <time datetime="2026-08-28T22:15+02:00">22.15</time></p>
     </div>
   </article>
 
 </main>
+
+<script src="lang.js"></script>
 
 </body>
 </html>
