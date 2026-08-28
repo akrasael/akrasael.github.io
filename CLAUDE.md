@@ -59,7 +59,8 @@ The working rules:
 | File | Purpose |
 | --- | --- |
 | `index.html` | Home — intentionally empty |
-| `mathematics.html` | Mathematics — heading, pull quote, Mathematical Writing |
+| `mathematics.html` | Mathematics — heading, pull quote, Mathematical Writing, How to Play Folklore |
+| `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles |
 | `.nojekyll` | Serve files as-is, without Jekyll |
 

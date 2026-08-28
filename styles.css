@@ -9,6 +9,7 @@
   --muted: #5f6368;
   --rule: #c8c8c8;          /* underline under the active tab */
   --rule-hover: #e6e6e6;
+  --link: #2b4fa8;          /* contrast 7.5:1 on white — AAA for body text */
 
   /* One family, with a fallback stack that only takes over if Lora fails */
   --serif: "Lora", Georgia, "Times New Roman", serif;
@@ -140,7 +141,7 @@ h2 {
 }
 
 a {
-  color: var(--text);       /* links keep their underline: underlining
+  color: var(--link);       /* links keep their underline: underlining
                                means a link, and nothing else */
 }
 
@@ -179,7 +180,31 @@ a {
 }
 
 .writing h2 {
+  margin: 54px 0 16px;
+  font-weight: 500;        /* weight, not a second family, for hierarchy */
+}
+
+.writing h2:first-child {
+  margin-top: 0;
+}
+
+/* List of writings: title, then its description */
+.entries {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.entries li + li {
+  margin-top: 26px;
+}
+
+.entries a {
+  font-size: 19px;
+}
+
+.entries p {
+  margin: 4px 0 0;
 }
 
 .writing p {

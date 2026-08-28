@@ -8,7 +8,8 @@ Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 | File | Purpose |
 | --- | --- |
 | `index.html` | Home — intentionally empty |
-| `mathematics.html` | Mathematics — heading, pull quote, Mathematical Writing |
+| `mathematics.html` | Mathematics — heading, pull quote, Mathematical Writing, How to Play Folklore |
+| `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles for both pages |
 | `.nojekyll` | Serve the files as-is, without Jekyll processing |
 | `CLAUDE.md` | Working notes, including the typography rules to follow |
