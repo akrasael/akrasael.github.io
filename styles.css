@@ -1,13 +1,20 @@
-/* Kevin Haagensen Strömberg — shared styles */
+/* Kevin Haagensen Strömberg
+   Typography follows Butterick's Practical Typography — see CLAUDE.md.
+   Key constraints: line spacing 120–145%, measure 45–90 characters,
+   a real typeface rather than a system default. */
 
 :root {
   --bg: #ffffff;
-  --text: #1f2328;
-  --muted: #5b6470;
-  --line: #e3e6ea;
-  --accent: #1a73e8;
-  --accent-soft: #f1f6fd;
-  --wrap: 900px;
+  --text: #202124;
+  --muted: #5f6368;
+  --rule: #c8c8c8;          /* underline under the active tab */
+  --rule-hover: #e6e6e6;
+
+  /* One family, with a fallback stack that only takes over if Lora fails */
+  --serif: "Lora", Georgia, "Times New Roman", serif;
+
+  --wrap: 680px;            /* ≈78 characters at 17px — inside 45–90 */
+  --gutter: 44px;
 }
 
 *,
@@ -24,13 +31,9 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system,
-    "Segoe UI", Roboto, sans-serif;
+  font-family: var(--serif);
   font-size: 17px;
-  line-height: 1.65;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  line-height: 1.42;        /* 142% — top of the 120–145% range */
 }
 
 .wrap {
@@ -45,7 +48,7 @@ body {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--accent);
+  background: var(--text);
   color: #fff;
   padding: 10px 16px;
   z-index: 10;
@@ -55,139 +58,181 @@ body {
   left: 0;
 }
 
-/* Header */
+/* ---------------------------------------------------------------
+   Header — tabs at the top right, full viewport width, no divider
+   beneath. The active tab carries a grey underline.
+   --------------------------------------------------------------- */
+
 .site-header {
-  padding: 34px 0 22px;
-}
-
-.site-title {
-  display: inline-block;
-  font-size: 28px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.site-title:hover {
-  color: var(--accent);
-}
-
-/* Tabs */
-.tabs {
-  border-bottom: 1px solid var(--line);
-}
-
-.tabs .wrap {
+  padding: 28px var(--gutter) 0;
   display: flex;
-  gap: 4px;
+  justify-content: flex-end;
+}
+
+.tabs {
+  display: flex;
+  gap: 38px;
 }
 
 .tab {
-  position: relative;
-  padding: 12px 18px;
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -1px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;    /* underline would read as a link cue here;
+                               the active state is the grey rule below */
+  padding-bottom: 13px;
+  border-bottom: 5px solid transparent;
   white-space: nowrap;
 }
 
 .tab:hover {
-  color: var(--text);
-  background: var(--accent-soft);
+  border-bottom-color: var(--rule-hover);
 }
 
-.tab.is-active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+.tab.is-active,
+.tab.is-active:hover {
+  border-bottom-color: var(--rule);
 }
 
 .tab:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
 }
 
 /* Main */
 main {
-  flex: 1 0 auto;
-  padding: 44px 0 72px;
+  padding: 60px 0 90px;
+}
+
+.centered {
+  text-align: center;       /* short display passages only */
 }
 
 h1 {
-  margin: 0 0 8px;
-  font-size: 34px;
-  font-weight: 500;
-  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.15;        /* display sizes take tighter leading */
 }
 
 h2 {
-  margin: 40px 0 10px;
-  font-size: 22px;
-  font-weight: 500;
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 p {
-  margin: 0 0 16px;
+  margin: 0 0 16px;         /* space between paragraphs, no first-line
+                               indent — never both */
+}
+
+/* Widow and orphan control */
+p,
+blockquote,
+li {
+  text-wrap: pretty;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
 }
 
 a {
-  color: var(--accent);
+  color: var(--text);       /* links keep their underline: underlining
+                               means a link, and nothing else */
 }
 
-.lead {
+/* Pull quote */
+.quote {
+  margin: 40px auto 0;
+  max-width: 600px;         /* ≈57 characters at 21px */
+}
+
+.quote blockquote {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.45;        /* 145% — the ceiling, not beyond it */
+}
+
+.quote blockquote p {
+  margin: 0;
+}
+
+.quote figcaption {
+  margin-top: 22px;
   color: var(--muted);
-  font-size: 19px;
-  margin-bottom: 28px;
+  font-size: 16px;
 }
 
-hr {
-  border: 0;
-  border-top: 1px solid var(--line);
-  margin: 36px 0;
+.quote cite {
+  font-style: italic;       /* italic, not underline, for emphasis */
 }
 
-/* Footer */
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 22px 0 30px;
-  color: var(--muted);
-  font-size: 14px;
+/* Left-aligned section, set in from the left edge of the page */
+.writing {
+  margin-top: 96px;
+  padding-left: 76px;
+  padding-right: var(--gutter);
+  text-align: left;
+}
+
+.writing h2 {
+  margin: 0;
+}
+
+.writing p {
+  max-width: 34em;          /* holds the measure inside 90 characters */
 }
 
 /* Small screens */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+  :root {
+    --gutter: 20px;
+  }
+
   body {
     font-size: 16px;
   }
 
   .wrap {
-    padding: 0 18px;
+    padding: 0 20px;
   }
 
   .site-header {
-    padding: 26px 0 18px;
+    padding-top: 20px;
   }
 
-  .site-title {
-    font-size: 23px;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  .lead {
-    font-size: 17px;
-  }
-
-  .tabs .wrap {
-    overflow-x: auto;
+  .tabs {
+    gap: 24px;
   }
 
   .tab {
-    padding: 12px 14px;
+    font-size: 17px;
+    padding-bottom: 10px;
+    border-bottom-width: 4px;
+  }
+
+  main {
+    padding: 42px 0 70px;
+  }
+
+  h1 {
+    font-size: 31px;
+  }
+
+  .quote {
+    margin-top: 30px;
+  }
+
+  .quote blockquote {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .writing {
+    margin-top: 62px;
+    padding-left: 28px;
   }
 }
