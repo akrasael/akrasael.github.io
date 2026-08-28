@@ -26,15 +26,23 @@
   <h1>Blog</h1>
 
   <!-- ==========================================================
-       One <li> per post, newest first.
+       One <article class="post-preview"> per post, newest first.
+       Update the <time> datetime attribute as well as the visible
+       text when you change a date.
        ========================================================== -->
 
-  <ul class="entries">
-    <li>
-      <a href="blog/example-title.html">Example title</a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </li>
-  </ul>
+  <article class="post-preview">
+    <p class="post-date">
+      <time datetime="2026-08-28">Aug 28, 2026</time>
+    </p>
+    <div class="post-body">
+      <h2 class="post-title"><a href="blog/example-title.html">Example title</a></h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua&#8230;</p>
+      <p><a class="button" href="blog/example-title.html">Read more&#8230;</a></p>
+      <p class="post-meta">posted at 13.37</p>
+    </div>
+  </article>
 
 </main>
 

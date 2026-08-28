@@ -75,6 +75,11 @@ The working rules:
   run to the page edge goes outside `.wrap` and uses `--gutter`.
 - `.centered` centres a short display block. `.writing` is left-aligned and
   set in from the left page edge.
+- A blog entry on `blog.html` is one `<article class="post-preview">`:
+  a `.post-date` block in the left column, then `.post-body` holding the
+  title, excerpt, a `.button` link and the `.post-meta` posted-at line.
+  On narrow screens the date stacks above the title. Change the `<time>`
+  `datetime` attribute whenever the visible date changes.
 - Every page carries the same three tabs. A post inside `blog/` is one
   directory down, so its nav hrefs and its stylesheet link need a `../`
   prefix; pages at the root do not.
