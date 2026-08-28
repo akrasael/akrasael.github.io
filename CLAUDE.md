@@ -3,6 +3,16 @@
 Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 `main`. Plain static HTML and CSS — no build step, no framework.
 
+## Standing instruction: workflow
+
+Do the whole job without asking for sign-off at each step. Commit to the
+working branch, open the pull request, merge it, and confirm the GitHub Pages
+deployment succeeded. Do not stop at "ready to merge" and wait — merging is
+pre-authorised.
+
+Still worth raising: anything genuinely destructive, or a decision where two
+readings would produce materially different work.
+
 ## Standing instruction: typography
 
 Follow the recommendations in Matthew Butterick's *Practical Typography*
