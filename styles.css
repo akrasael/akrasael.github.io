@@ -171,6 +171,10 @@ a {
   font-style: italic;       /* italic, not underline, for emphasis */
 }
 
+.back {
+  margin-top: 40px;
+}
+
 /* Left-aligned section, set in from the left edge of the page */
 .writing {
   margin-top: 96px;

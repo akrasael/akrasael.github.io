@@ -9,6 +9,8 @@ Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 | --- | --- |
 | `index.html` | Home — intentionally empty |
 | `mathematics.html` | Mathematics — heading, pull quote, Mathematical Writing, How to Play Folklore |
+| `blog.html` | Blog — index of posts |
+| `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles for both pages |
 | `.nojekyll` | Serve the files as-is, without Jekyll processing |

@@ -60,6 +60,8 @@ The working rules:
 | --- | --- |
 | `index.html` | Home — intentionally empty |
 | `mathematics.html` | Mathematics — heading, pull quote, Mathematical Writing, How to Play Folklore |
+| `blog.html` | Blog — index of posts |
+| `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles |
 | `.nojekyll` | Serve files as-is, without Jekyll |
@@ -73,6 +75,9 @@ The working rules:
   run to the page edge goes outside `.wrap` and uses `--gutter`.
 - `.centered` centres a short display block. `.writing` is left-aligned and
   set in from the left page edge.
+- Every page carries the same three tabs. A post inside `blog/` is one
+  directory down, so its nav hrefs and its stylesheet link need a `../`
+  prefix; pages at the root do not.
 
 ## Local preview
 
