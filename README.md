@@ -13,7 +13,6 @@ Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles for both pages |
-| `lang.js` | English/Swedish toggle |
 | `.nojekyll` | Serve the files as-is, without Jekyll processing |
 | `CLAUDE.md` | Working notes, including the typography rules to follow |
 
