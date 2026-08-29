@@ -13,6 +13,33 @@ pre-authorised.
 Still worth raising: anything genuinely destructive, or a decision where two
 readings would produce materially different work.
 
+## Standing instruction: keep the feed in sync
+
+`feed.xml` is maintained by hand — there is no build step to regenerate it.
+A stale feed **fails silently**: nothing breaks visibly, no link 404s, and no
+check catches it. It just quietly stops matching the blog.
+
+So whenever a post is added, retitled, edited, or its date changes, update
+`feed.xml` **in the same commit**. Specifics:
+
+- One `<item>` per post, newest first, with `title`, absolute `link`, absolute
+  `guid`, `pubDate` and `description`.
+- `link` and `guid` must be absolute URLs under `https://akrasael.github.io/`
+  — feed readers resolve them with no page context to fall back on.
+- `pubDate` is RFC 822 (`Fri, 28 Aug 2026 22:15:00 +0200`), while the page's
+  `<time datetime="…">` is ISO 8601 (`2026-08-28T22:15+02:00`). The same
+  moment in two formats: change both, and derive the value rather than
+  guessing the weekday.
+- Update `lastBuildDate` on the channel at the same time; it equals the
+  newest item's `pubDate`.
+- Write literal UTF-8 characters in `feed.xml` — `…` `—` `·` `"` `'` — and
+  **never named HTML entities.** XML predefines only `&amp;amp; &amp;lt; &amp;gt; &amp;quot;
+  &amp;apos;`, so the `&amp;mdash;` and `&amp;middot;` used happily in the HTML pages would
+  make the feed fail to parse outright. This is the likeliest way to break it,
+  because it is what copying markup out of `blog.html` produces.
+- **Never change a published `guid`, so never rename a post file.** Readers
+  dedupe on it; changing one re-shows an old post as new to every subscriber.
+
 ## Standing instruction: typography
 
 Follow the recommendations in Matthew Butterick's *Practical Typography*
@@ -64,6 +91,9 @@ The working rules:
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles |
+| `site.js` | The only JavaScript; usage counters and their provider configuration |
+| `feed.xml` | RSS feed for the blog, maintained by hand |
+| `404.html` | Not-found page; absolute paths only |
 | `.nojekyll` | Serve files as-is, without Jekyll |
 
 ## Layout conventions
@@ -80,6 +110,19 @@ The working rules:
   title, excerpt, a `.button` link and the `.post-meta` posted-at line.
   On narrow screens the date stacks above the title. Change the `<time>`
   `datetime` attribute whenever the visible date changes.
+- `404.html` uses **absolute** local paths throughout (`/styles.css`,
+  `/index.html`, …) and must keep doing so. GitHub Pages serves it for a
+  missing URL at any depth, so a relative path resolves against the wrong base
+  and the page arrives unstyled with broken navigation. Every other page uses
+  relative paths as normal.
+- `site.js` is the only JavaScript and it does one thing: count usage. Nothing
+  on the site may depend on it — with scripting off, every page, link and
+  download still works. Provider configuration lives only in its `CONFIG`
+  block, never inline in a page. Click events are attached there by CSS
+  selector, so links need no handlers or extra attributes.
+- The download selector excludes `http` hrefs deliberately. The thesis link is
+  both external and a `.pdf`; without that exclusion one click would be counted
+  twice, as a download and as an outbound click.
 - Every page carries the same three tabs. A post inside `blog/` is one
   directory down, so its nav hrefs and its stylesheet link need a `../`
   prefix; pages at the root do not.
