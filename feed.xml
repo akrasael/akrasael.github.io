@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kevin Haagensen Strömberg</title>
+    <link>https://akrasael.github.io/blog.html</link>
+    <description>Blog posts by Kevin Haagensen Strömberg.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Aug 2026 22:15:00 +0200</lastBuildDate>
+    <atom:link href="https://akrasael.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- One <item> per post, newest first. Add an item here in the same
+         commit as any new or edited post: a stale feed fails silently.
+         pubDate is RFC 822, not the ISO 8601 form used by the page's
+         <time datetime="…"> attribute — both need editing together. -->
+
+    <item>
+      <title>Example title</title>
+      <link>https://akrasael.github.io/blog/example-title.html</link>
+      <guid isPermaLink="true">https://akrasael.github.io/blog/example-title.html</guid>
+      <pubDate>Fri, 28 Aug 2026 22:15:00 +0200</pubDate>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua…</description>
+    </item>
+
+  </channel>
+</rss>
