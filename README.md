@@ -13,8 +13,8 @@ Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles for both pages |
+| `fonts/` | Lora, self-hosted; `OFL.txt` is its licence and must stay |
 | `site.js` | The only JavaScript; usage counters and their provider configuration |
-| `feed.xml` | RSS feed for the blog, maintained by hand |
 | `404.html` | Not-found page; absolute paths only |
 | `.nojekyll` | Serve the files as-is, without Jekyll processing |
 | `CLAUDE.md` | Working notes, including the typography rules to follow |
