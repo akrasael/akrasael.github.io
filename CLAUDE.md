@@ -33,10 +33,18 @@ The working rules:
 - Keep the number of families small; this site uses one (Lora) with a serif
   fallback stack.
 - Lora is served from `fonts/` in this repository, never from Google, so no
-  third party sees who visits. If a weight or style is ever added to the CSS,
-  add the matching `@font-face` too: without a real face the browser fakes it
-  by slanting or smearing the roman, which is what italic looked like before
-  the font was self-hosted.
+  third party sees who visits.
+- The two files in `fonts/` are the unmodified variable webfonts from the
+  Lora project's own release (github.com/cyrealtype/Lora-Cyrillic,
+  `fonts/webfonts/`), kept under their upstream file names. Never subset,
+  convert or rename them: a modified version may not carry the reserved
+  font name "Lora" under the SIL OFL, and serving the Original Version is
+  what keeps the site clear of that condition. To update, copy the new
+  release's files and its `OFL.txt` over verbatim.
+- Each file covers weights 400–700 upright or italic, so a new weight needs
+  no new file. Italic must come from the italic file: without a real face the
+  browser fakes it by slanting the roman, which is what italic looked like
+  before the font was self-hosted.
 
 **Punctuation and characters**
 - Curly quotes and apostrophes (`&ldquo; &rdquo; &lsquo; &rsquo;`), never the
@@ -69,7 +77,7 @@ The working rules:
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles |
-| `fonts/` | Lora, self-hosted; `OFL.txt` is its licence and must stay |
+| `fonts/` | Lora, unmodified upstream variable webfonts; `OFL.txt` is its licence and must stay |
 | `site.js` | The only JavaScript; usage counters and their provider configuration |
 | `404.html` | Not-found page; absolute paths only |
 | `.nojekyll` | Serve files as-is, without Jekyll |
