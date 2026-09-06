@@ -13,11 +13,23 @@ Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles for both pages |
-| `fonts/` | Lora, unmodified upstream variable webfonts; `OFL.txt` is its licence and must stay |
 | `site.js` | The only JavaScript; usage counters and their provider configuration |
 | `404.html` | Not-found page; absolute paths only |
 | `.nojekyll` | Serve the files as-is, without Jekyll processing |
 | `CLAUDE.md` | Working notes, including the typography rules to follow |
+
+## Fonts
+
+The shared stylesheet uses `Georgia, "Times New Roman", serif`. The browser
+uses a font already available on the visitor's device, falling back to its
+default serif font if neither named font is installed. Appearance can vary
+between devices. There are no bundled font files or font downloads, so this
+CSS stack requires no accompanying font licence text in the site.
+
+This is easy to check in [Microsoft's font FAQ, under “Web”](https://learn.microsoft.com/en-us/typography/fonts/font-faq#web):
+it permits naming Windows fonts in a CSS font stack because the font is used
+on the visitor's device. The [CSS specification](https://www.w3.org/TR/css-fonts-4/#generic-font-families)
+also explains that generic families such as `serif` refer to installed fonts.
 
 ## Layout
 
