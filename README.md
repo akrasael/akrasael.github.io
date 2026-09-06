@@ -20,11 +20,17 @@ Personal website for Kevin Haagensen Strömberg, served by GitHub Pages from
 
 ## Fonts
 
-The shared stylesheet uses `Georgia, "Times New Roman", serif`. The browser
-uses a font already available on the visitor's device, falling back to its
-default serif font if neither named font is installed. Appearance can vary
-between devices. There are no bundled font files or font downloads, so this
-CSS stack requires no accompanying font licence text in the site.
+The shared stylesheet uses `Charter, "Palatino Linotype", Palatino, serif`.
+The browser selects the first font in that list available on the visitor's
+device, falling back to its default serif font if none of the named fonts is
+installed. Appearance can vary between devices. There are no bundled font
+files or font downloads, so this CSS stack requires no accompanying font
+licence text in the site.
+
+This choice follows [Butterick's system-font guidance](https://practicaltypography.com/system-fonts.html):
+Charter and Palatino are on his A list and marked suitable for body text.
+He also [recommends Charter for screen reading](https://practicaltypography.com/charter.html).
+This fallback order is our choice; it is not a stack prescribed by Butterick.
 
 This is easy to check in [Microsoft's font FAQ, under “Web”](https://learn.microsoft.com/en-us/typography/fonts/font-faq#web):
 it permits naming Windows fonts in a CSS font stack because the font is used

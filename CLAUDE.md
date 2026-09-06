@@ -28,9 +28,11 @@ The working rules:
 - Generous page margins. White space is not wasted space.
 
 **Fonts**
-- Use the device-font stack `Georgia, "Times New Roman", serif` throughout.
-  The user's preference is to avoid shipping fonts or font licence text;
-  this takes precedence over any recommendation to use a custom typeface.
+- Use the device-font stack
+  `Charter, "Palatino Linotype", Palatino, serif` throughout.
+  Charter and Palatino are on Butterick's A list for system fonts and are
+  suitable for body text. This stack preserves the user's preference to use
+  installed fonts without shipping font files or accompanying licence text.
 - Do not add font files, `@font-face` rules or external font services.
   The browser selects an installed font, with its default serif as the last
   fallback. The exact appearance may vary between devices.
