@@ -12,7 +12,7 @@
   --link: #2b4fa8;          /* contrast 7.5:1 on white — AAA for body text */
 
   /* Installed fonts only: no font files, downloads or bundled licence text. */
-  --serif: Georgia, "Times New Roman", serif;
+  --serif: Charter, "Palatino Linotype", Palatino, serif;
 
   --wrap: 680px;            /* reading width; font metrics vary by device */
   --gutter: 44px;
