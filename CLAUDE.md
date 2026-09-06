@@ -28,23 +28,15 @@ The working rules:
 - Generous page margins. White space is not wasted space.
 
 **Fonts**
-- Use a real typeface, not a system default. Never Times New Roman or Arial
-  as the intended font — only as the tail of a fallback stack.
-- Keep the number of families small; this site uses one (Lora) with a serif
-  fallback stack.
-- Lora is served from `fonts/` in this repository, never from Google, so no
-  third party sees who visits.
-- The two files in `fonts/` are the unmodified variable webfonts from the
-  Lora project's own release (github.com/cyrealtype/Lora-Cyrillic,
-  `fonts/webfonts/`), kept under their upstream file names. Never subset,
-  convert or rename them: a modified version may not carry the reserved
-  font name "Lora" under the SIL OFL, and serving the Original Version is
-  what keeps the site clear of that condition. To update, copy the new
-  release's files and its `OFL.txt` over verbatim.
-- Each file covers weights 400–700 upright or italic, so a new weight needs
-  no new file. Italic must come from the italic file: without a real face the
-  browser fakes it by slanting the roman, which is what italic looked like
-  before the font was self-hosted.
+- Use the device-font stack `Georgia, "Times New Roman", serif` throughout.
+  The user's preference is to avoid shipping fonts or font licence text;
+  this takes precedence over any recommendation to use a custom typeface.
+- Do not add font files, `@font-face` rules or external font services.
+  The browser selects an installed font, with its default serif as the last
+  fallback. The exact appearance may vary between devices.
+- Use standard regular (400), bold (700) and italic styles from the selected
+  family. Do not depend on intermediate variable-font weights.
+- Verification sources for this choice are linked in `README.md` under Fonts.
 
 **Punctuation and characters**
 - Curly quotes and apostrophes (`&ldquo; &rdquo; &lsquo; &rsquo;`), never the
@@ -77,7 +69,6 @@ The working rules:
 | `blog/` | One HTML file per post |
 | `files/` | PDFs linked from the pages, served directly |
 | `styles.css` | Shared styles |
-| `fonts/` | Lora, unmodified upstream variable webfonts; `OFL.txt` is its licence and must stay |
 | `site.js` | The only JavaScript; usage counters and their provider configuration |
 | `404.html` | Not-found page; absolute paths only |
 | `.nojekyll` | Serve files as-is, without Jekyll |

@@ -1,34 +1,7 @@
-/* Lora, served from this repository rather than Google's servers, so no
-   third party sees who visits. The two files are the unmodified variable
-   webfonts from the Lora project's own release
-   (https://github.com/cyrealtype/Lora-Cyrillic, fonts/webfonts/), kept
-   under their upstream names. Serving the Original Version rather than a
-   subset keeps clear of the SIL OFL's reserved-font-name condition, which
-   applies to modified versions. Licence: fonts/OFL.txt (SIL OFL 1.1).
-
-   Each file carries the whole weight range 400–700, so the 400 and 500
-   used below come from the same face. */
-
-@font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("fonts/Lora[wght].woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Lora";
-  font-style: italic;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("fonts/Lora-Italic[wght].woff2") format("woff2");
-}
-
 /* Kevin Haagensen Strömberg
    Typography follows Butterick's Practical Typography — see CLAUDE.md.
    Key constraints: line spacing 120–145%, measure 45–90 characters,
-   a real typeface rather than a system default. */
+   with a serif font supplied by the visitor's device. */
 
 :root {
   --bg: #ffffff;
@@ -38,10 +11,10 @@
   --rule-hover: #e6e6e6;
   --link: #2b4fa8;          /* contrast 7.5:1 on white — AAA for body text */
 
-  /* One family, with a fallback stack that only takes over if Lora fails */
-  --serif: "Lora", Georgia, "Times New Roman", serif;
+  /* Installed fonts only: no font files, downloads or bundled licence text. */
+  --serif: Georgia, "Times New Roman", serif;
 
-  --wrap: 680px;            /* ≈78 characters at 17px — inside 45–90 */
+  --wrap: 680px;            /* reading width; font metrics vary by device */
   --gutter: 44px;
 }
 
@@ -175,7 +148,7 @@ a {
 /* Pull quote */
 .quote {
   margin: 40px auto 0;
-  max-width: 600px;         /* ≈57 characters at 21px */
+  max-width: 600px;         /* keep the quotation's lines comfortably short */
 }
 
 .quote blockquote {
@@ -233,7 +206,7 @@ a {
 .post-title {
   margin: 0 0 12px;
   font-size: 29px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -281,7 +254,7 @@ a {
 
 .writing h2 {
   margin: 54px 0 16px;
-  font-weight: 500;        /* weight, not a second family, for hierarchy */
+  font-weight: 700;        /* use the installed family's standard bold face */
 }
 
 .writing h2:first-child {
